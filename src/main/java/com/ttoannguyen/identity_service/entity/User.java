@@ -1,9 +1,7 @@
 package com.ttoannguyen.identity_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Set;
 import lombok.AccessLevel;
@@ -19,6 +17,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "user")
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
@@ -30,5 +29,6 @@ public class User {
   String lastname;
   LocalDate dob;
 
-  Set<String> roles;
+    @ManyToMany
+  Set<Role> roles;
 }

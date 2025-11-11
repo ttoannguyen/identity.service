@@ -20,6 +20,7 @@ public interface UserMapper {
   @Mapping(target = "roles", ignore = true)
   User updateUser(@MappingTarget User user, UserUpdateRequest request);
 
+  @Mapping(target = "roles", ignore = true)
   UserResponse toUserResponse(User user);
 
   List<UserResponse> toListUserResponses(List<User> users);
